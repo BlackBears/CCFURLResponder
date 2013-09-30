@@ -50,7 +50,7 @@ Register patterns early in the application life cycle, like so:
 }
 ```
 
-Note that these examples assume that your application has registered the URL scheme "ccfurlresponder".  You set this on the target in Xcode.  Also, this probably works on Mac OS; it just hasn't been tested yet.
+Note that these examples assume that your application has registered the URL scheme "ccfurlresponder".  You set this on the target in Xcode.  
 
 ### Getting started ###
 
@@ -62,4 +62,4 @@ Finally, the main view controller `CCFViewController` shows how to respond to th
 
 ### Caveats ###
 
-When you register a pattern, we do __not__ check for conflicts.  The first pattern wins.  We'll get around to fixing that someday.  Or you can help.
+When you register a pattern, we do __not__ check for conflicts.  The first pattern wins.  We'll get around to fixing that someday.  Or you can help.  Also, this probably works on Mac OS; it just hasn't been tested yet.
