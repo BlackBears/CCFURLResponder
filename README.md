@@ -7,4 +7,11 @@ But how does a URL message get translated into an action in the application?  `C
 
 ### URL pattern syntax ###
 
-Right now, `CCFURLResponder` knows how to respond deal with 4 types of path components, __string__, __literal__, __integer__, and __float__.
+Right now, `CCFURLResponder` knows how to respond deal with 4 types of path components, __string__, __literal__, __integer__, and __float__.  These are designated in patterns as __s__, __l__, __i__, and __f__ respectively.  For literal path components, we try to match the exact text.  For the other pattern component types, we try to match generically.  Each pattern component must have a key (like `s:YourKeyName`) because the values that the pattern matches will be entered in the `NSNotification` userInfo dictionary under that key name.  Makes sense?
+
+#### Some pattern examples ####
+
+The pattern `/l:(animal)MyAnimalDomainKey/s:MyAnimalNameKey/f:MyAverageWeightKey` would match a URL of the form `ccfurlresponder://animal/platypus/8.0`
+
+The pattern `/s:MyColorNameKey/f:MyRedKey/f:MyGreenKey/f:MyBlueKey` would match a URL like: `ccfurlresponder://Pure%20red/1.0/0.0/0.0`
+
