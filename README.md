@@ -15,6 +15,41 @@ The pattern `/l:(animal)MyAnimalDomainKey/s:MyAnimalNameKey/f:MyAverageWeightKey
 
 The pattern `/s:MyColorNameKey/f:MyRedKey/f:MyGreenKey/f:MyBlueKey` would match a URL like: `ccfurlresponder://Pure%20red/1.0/0.0/0.0`
 
+### How to register patterns ###
+
+Register patterns early in the application life cycle, like so:
+
+``` objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    NSError *error = nil;
+    NSString *pattern = @"l:(animal)CCFAnimalDomain/s:CCFAnimal/f:CCFAverageWeight/i:CCFAverageLifeExpectancy";
+    if( ![CCFURLResponder registerSchemeWithPattern:pattern forNotificationName:@"CCFAnimalNotification" error:&error] )
+        NSLog(@"%s - error registering pattern %@,%@",__FUNCTION__,error, error.userInfo);
+    //  register another pattern
+    pattern = @"l:(color)CCFColorDomain/s:CCFEnglishWord/s:CCFFrenchWord";
+    if( ![CCFURLResponder registerSchemeWithPattern:pattern forNotificationName:@"CCFColorNotification" error:&error] )
+        NSLog(@"%s - error registering pattern %@,%@",__FUNCTION__,error, error.userInfo);
+    return YES;
+}
+```
+
+### How to respond to incoming URL requests ###
+
+``` objc
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if( !url ) { return NO; }
+    //  bail quickly if this is just ccfurlresponder://open
+    if( [[url host] isEqualToString:@"open"] )
+        return YES;
+    if( [[url scheme] isEqualToString:@"ccfurlresponder"] ) {
+        [CCFURLResponder processURL:url];
+    }
+    return YES;
+}
+```
+
 ### Getting started ###
 
 The best way is to download the repository and build the sample application, which presents a web view with some links you can tap.  You can examine the html file `test_doc.html` to look at the URLs to give you an idea about how they're formatted.
