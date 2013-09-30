@@ -24,6 +24,11 @@
 		E79414BA17F8489400371722 /* CCFURLResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = E79414B717F8489400371722 /* CCFURLResponder.m */; };
 		E79414BB17F8489400371722 /* CCFURLResponderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E79414B917F8489400371722 /* CCFURLResponderScheme.m */; };
 		E79414BE17F8D52D00371722 /* test_doc.html in Resources */ = {isa = PBXBuildFile; fileRef = E79414BD17F8D52D00371722 /* test_doc.html */; };
+		E79414C317F9190000371722 /* CCFColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79414C217F9190000371722 /* CCFColorView.xib */; };
+		E79414C617F919D200371722 /* CCFColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79414C517F919D200371722 /* CCFColorView.m */; };
+		E79414C817F91B0300371722 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79414C717F91B0300371722 /* QuartzCore.framework */; };
+		E79414CA17F91E2D00371722 /* CCFAnimalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79414C917F91E2D00371722 /* CCFAnimalView.xib */; };
+		E79414CD17F97E9D00371722 /* CCFAnimalView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79414CC17F97E9D00371722 /* CCFAnimalView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,13 @@
 		E79414B817F8489400371722 /* CCFURLResponderScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFURLResponderScheme.h; sourceTree = "<group>"; };
 		E79414B917F8489400371722 /* CCFURLResponderScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFURLResponderScheme.m; sourceTree = "<group>"; };
 		E79414BD17F8D52D00371722 /* test_doc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test_doc.html; sourceTree = "<group>"; };
+		E79414C217F9190000371722 /* CCFColorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCFColorView.xib; sourceTree = "<group>"; };
+		E79414C417F919D200371722 /* CCFColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFColorView.h; sourceTree = "<group>"; };
+		E79414C517F919D200371722 /* CCFColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFColorView.m; sourceTree = "<group>"; };
+		E79414C717F91B0300371722 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E79414C917F91E2D00371722 /* CCFAnimalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCFAnimalView.xib; sourceTree = "<group>"; };
+		E79414CB17F97E9D00371722 /* CCFAnimalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFAnimalView.h; sourceTree = "<group>"; };
+		E79414CC17F97E9D00371722 /* CCFAnimalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFAnimalView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79414C817F91B0300371722 /* QuartzCore.framework in Frameworks */,
 				E794148317F8483200371722 /* CoreGraphics.framework in Frameworks */,
 				E794148517F8483200371722 /* UIKit.framework in Frameworks */,
 				E794148117F8483200371722 /* Foundation.framework in Frameworks */,
@@ -109,6 +122,7 @@
 		E794147F17F8483200371722 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E79414C717F91B0300371722 /* QuartzCore.framework */,
 				E794148017F8483200371722 /* Foundation.framework */,
 				E794148217F8483200371722 /* CoreGraphics.framework */,
 				E794148417F8483200371722 /* UIKit.framework */,
@@ -176,6 +190,12 @@
 				E794149217F8483200371722 /* Main.storyboard */,
 				E794149517F8483200371722 /* CCFViewController.h */,
 				E794149617F8483200371722 /* CCFViewController.m */,
+				E79414C417F919D200371722 /* CCFColorView.h */,
+				E79414C517F919D200371722 /* CCFColorView.m */,
+				E79414C217F9190000371722 /* CCFColorView.xib */,
+				E79414C917F91E2D00371722 /* CCFAnimalView.xib */,
+				E79414CB17F97E9D00371722 /* CCFAnimalView.h */,
+				E79414CC17F97E9D00371722 /* CCFAnimalView.m */,
 				E794149817F8483200371722 /* Images.xcassets */,
 				E794148717F8483200371722 /* Supporting Files */,
 			);
@@ -261,8 +281,10 @@
 			files = (
 				E794149917F8483200371722 /* Images.xcassets in Resources */,
 				E79414BE17F8D52D00371722 /* test_doc.html in Resources */,
+				E79414C317F9190000371722 /* CCFColorView.xib in Resources */,
 				E794148B17F8483200371722 /* InfoPlist.strings in Resources */,
 				E794149417F8483200371722 /* Main.storyboard in Resources */,
+				E79414CA17F91E2D00371722 /* CCFAnimalView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +306,8 @@
 				E79414BB17F8489400371722 /* CCFURLResponderScheme.m in Sources */,
 				E794148D17F8483200371722 /* main.m in Sources */,
 				E79414BA17F8489400371722 /* CCFURLResponder.m in Sources */,
+				E79414C617F919D200371722 /* CCFColorView.m in Sources */,
+				E79414CD17F97E9D00371722 /* CCFAnimalView.m in Sources */,
 				E794149717F8483200371722 /* CCFViewController.m in Sources */,
 				E794149117F8483200371722 /* CCFAppDelegate.m in Sources */,
 			);

@@ -8,18 +8,17 @@
 {
     NSError *error = nil;
     NSString *pattern = @"l:(animal)CCFAnimalDomain/s:CCFAnimal/f:CCFAverageWeight/i:CCFAverageLifeExpectancy";
-    if( [CCFURLResponder registerSchemeWithPattern:pattern forNotificationName:@"CCFAnimalNotification" error:&error] ) {
-        NSString *urlString = @"ccfurlresponder://animal/platypus/3.0/4";
-        NSURL *url = [NSURL URLWithString:urlString];
-        [CCFURLResponder processURL:url];
-    }
-    else {
+    if( ![CCFURLResponder registerSchemeWithPattern:pattern forNotificationName:@"CCFAnimalNotification" error:&error] )
         NSLog(@"%s - error registering pattern %@,%@",__FUNCTION__,error, error.userInfo);
-    }
+    //  register another pattern
+    pattern = @"l:(color)CCFColorDomain/s:CCFEnglishWord/s:CCFFrenchWord";
+    if( ![CCFURLResponder registerSchemeWithPattern:pattern forNotificationName:@"CCFColorNotification" error:&error] )
+        NSLog(@"%s - error registering pattern %@,%@",__FUNCTION__,error, error.userInfo);
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     if( !url ) { return NO; }
     //  bail quickly if this is just ccfurlresponder://open
     if( [[url host] isEqualToString:@"open"] )
