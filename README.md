@@ -50,6 +50,8 @@ Register patterns early in the application life cycle, like so:
 }
 ```
 
+Note that these examples assume that your application has registered the URL scheme "ccfurlresponder".  You set this on the target in Xcode.
+
 ### Getting started ###
 
 The best way is to download the repository and build the sample application, which presents a web view with some links you can tap.  You can examine the html file `test_doc.html` to look at the URLs to give you an idea about how they're formatted.
