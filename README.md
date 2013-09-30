@@ -15,3 +15,14 @@ The pattern `/l:(animal)MyAnimalDomainKey/s:MyAnimalNameKey/f:MyAverageWeightKey
 
 The pattern `/s:MyColorNameKey/f:MyRedKey/f:MyGreenKey/f:MyBlueKey` would match a URL like: `ccfurlresponder://Pure%20red/1.0/0.0/0.0`
 
+### Getting started ###
+
+The best way is to download the repository and build the sample application, which presents a web view with some links you can tap.  You can examine the html file `test_doc.html` to look at the URLs to give you an idea about how they're formatted.
+
+Next, take look at the application delegate to see how we register URL patterns and route incoming requests.
+
+Finally, the main view controller `CCFViewController` shows how to respond to the generated `NSNotification` messages.
+
+### Caveats ###
+
+When you register a pattern, we do __not__ check for conflicts.  The first pattern wins.  We'll get around to fixing that someday.  Or you can help.
