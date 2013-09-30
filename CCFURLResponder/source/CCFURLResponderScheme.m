@@ -128,7 +128,11 @@ void InitRegexen(void)
                 break;
             }
             case CCFURLResponderSchemeComponentsTypeLiteral: {
-                mutableUserInfo[self.keys[idx]] = component;
+                //  see if this component matches the entry in the mutable literals dictionary
+                NSString *notificationKey = self.keys[idx];
+                NSString *literal = self.mutableLiterals[notificationKey];
+                if( [literal isEqualToString:component] )
+                    mutableUserInfo[self.keys[idx]] = component;
                 break;
             }
             default: {
