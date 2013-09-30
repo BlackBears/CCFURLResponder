@@ -13,8 +13,8 @@ static NSRegularExpression *FloatRegex;
 __attribute__((constructor))
 void InitRegexen(void)
 {
-    IntegerRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d+" options:0 error:NULL];
-    FloatRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d+\\.\\d+" options:0 error:NULL];
+    IntegerRegex = [NSRegularExpression regularExpressionWithPattern:@"(?:\\-)?\\d+" options:0 error:NULL];
+    FloatRegex = [NSRegularExpression regularExpressionWithPattern:@"(?:\\-)?\\d+(?:\\.\\d+)?" options:0 error:NULL];
 }
 
 @interface CCFURLResponderScheme ()
@@ -79,21 +79,6 @@ void InitRegexen(void)
                 [scanner scanCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:&keyString];
             }
         }
-        
-//        CCFURLResponderSchemeComponentsType type;
-//        if( [typeString isEqualToString:@"s"] )
-//            type = CCFURLResponderSchemeComponentsTypeString;
-//        else if( [typeString isEqualToString:@"i"] )
-//            type = CCFURLResponderSchemeComponentsTypeInteger;
-//        else if( [typeString isEqualToString:@"f"] )
-//            type = CCFURLResponderSchemeComponentsTypeFloat;
-//        else if( [typeString isEqualToString:@"l"] ) {
-//            type = CCFURLResponderSchemeComponentsTypeLiteral;
-//        }
-//        else {
-//            *error = [[NSError alloc] initWithDomain:@"CCFAppDomain" code:102 userInfo:@{@"CCFErrorDetail": @"Incorrect path component type"}];
-//            return NO;
-//        }
         [mutableKeys addObject:keyString];
         [mutableTypes addObject:[NSNumber numberWithInteger:type]];
     }
@@ -169,7 +154,6 @@ void InitRegexen(void)
     });
     return [map[typeString] integerValue];
 }
-        
-        
 
+        
 @end
