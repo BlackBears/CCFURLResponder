@@ -1,29 +1,30 @@
-//
-//  CCFViewController.m
-//  CCFURLResponder
-//
-//  Created by alanduncan on 9/29/13.
-//  Copyright (c) 2013 Cocoa Factory, LLC. All rights reserved.
-//
-
 #import "CCFViewController.h"
 
 @interface CCFViewController ()
-
+@property (nonatomic, strong) UIWebView *webView;
 @end
 
 @implementation CCFViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [[self view] addSubview:[self webView]];
+    
+    //  load our sample html
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"test_doc" withExtension:@"html"];
+    [[self webView] loadRequest:[NSURLRequest requestWithURL:url]];
+	
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Private
+
+- (UIWebView *)webView {
+    if( !_webView ) {
+        _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+        _webView.autoresizingMask = ~UIViewAutoresizingNone;
+    }
+    return _webView;
 }
 
 @end

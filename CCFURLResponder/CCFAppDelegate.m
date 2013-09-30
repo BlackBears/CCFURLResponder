@@ -1,21 +1,35 @@
-//
-//  CCFAppDelegate.m
-//  CCFURLResponder
-//
-//  Created by alanduncan on 9/29/13.
-//  Copyright (c) 2013 Cocoa Factory, LLC. All rights reserved.
-//
-
 #import "CCFAppDelegate.h"
+
+#import "CCFURLResponder.h"
 
 @implementation CCFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSError *error = nil;
+    NSString *pattern = @"l:(animal)CCFAnimalDomain/s:CCFAnimal/f:CCFAverageWeight/i:CCFAverageLifeExpectancy";
+    if( [CCFURLResponder registerSchemeWithPattern:pattern forNotificationName:@"CCFAnimalNotification" error:&error] ) {
+        NSString *urlString = @"ccfurlresponder://animal/platypus/3.0/4";
+        NSURL *url = [NSURL URLWithString:urlString];
+        [CCFURLResponder processURL:url];
+    }
+    else {
+        NSLog(@"%s - error registering pattern %@,%@",__FUNCTION__,error, error.userInfo);
+    }
     return YES;
 }
-							
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if( !url ) { return NO; }
+    //  bail quickly if this is just ccfurlresponder://open
+    if( [[url host] isEqualToString:@"open"] )
+        return YES;
+    if( [[url scheme] isEqualToString:@"ccfurlresponder"] ) {
+        [CCFURLResponder processURL:url];
+    }
+    return YES;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

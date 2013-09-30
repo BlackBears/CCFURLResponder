@@ -1,12 +1,11 @@
-//
-//  CCFAppDelegate.h
-//  CCFURLResponder
-//
-//  Created by alanduncan on 9/29/13.
-//  Copyright (c) 2013 Cocoa Factory, LLC. All rights reserved.
-//
-
-#import <UIKit/UIKit.h>
+/**
+ *   @file CCFAppDelegate.h
+ *   @author Alan Duncan (www.cocoafactory.com)
+ *
+ *   @date 2013-09-29 06:38:52
+ *
+ *   @note Copyright 2013 Cocoa Factory, LLC.  All rights reserved
+ */
 
 @interface CCFAppDelegate : UIResponder <UIApplicationDelegate>
 
