@@ -141,8 +141,7 @@ void InitRegexen(void)
         }
     }];
     if( !success ) { return nil; }
-    NSNotification *note = [[NSNotification alloc] initWithName:self.notificationName object:nil userInfo:mutableUserInfo];
-    return note;
+    return [NSNotification notificationWithName:self.notificationName object:nil userInfo:mutableUserInfo];
 }
 
 #pragma mark - Private
